@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  upbit_bot:
+    container_name: upbit_bot
+    privileged: true
+    build:
+      context: .
+      args:
+        HTTP_API : your_telegram_http_api_key
+    image: telegram_bot
+    volumes:
+      - ./upbit_bot:/bot
+    ports:
+      - 443:443
+    restart: always
